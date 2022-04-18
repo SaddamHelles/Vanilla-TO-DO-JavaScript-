@@ -24,7 +24,7 @@ function addToDo(arg) {
   //   <button class='btnDelete' name='btnDelete' id='btnDelete'>     <i class='fas fa-trash'>         </i></button>
   li.innerHTML = `
     <span class='todo'>${arg}</span>
-
+    <a class='fas fa-trash' style='font-size: 18px; color:red; paddind-right:0px;' class='btnDelete' name='btnDelete' id='btnDelete'></a>
   `;
   li.classList.add("todoList");
   ul.appendChild(li);
@@ -32,10 +32,12 @@ function addToDo(arg) {
 
 function handleClickFunc(e) {
   console.log("Name Is: " + e.target.name);
-  //   if (e.target.name == "btnCheck") checkToDo(e);
+  if (e.target.name == "btnCheck") checkToDo(e);
   if (e.target.name == "btnDelete") deleteToDo(e);
 }
 
 function deleteToDo(e) {
-  console.log("deleteToDo");
+  let item = e.target.parentNode;
+  item.remove();
+  //console.log("Name Is: " + e.target.name);
 }
